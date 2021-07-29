@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+    <changeSet id="1" author="jtmaguire">
+        <createTable tableName="customers">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="firstName" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateOfBirth" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="emailAddress" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          defaultOnNull="false"
+                          generationType="ALWAYS"
+                          incrementBy="1"
+                          schemaName="public"
+                          startWith="1"
+                          tableName="customers"/>
+    </changeSet>
+</databaseChangeLog>

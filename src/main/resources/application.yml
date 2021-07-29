@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: customer-service
+
+  liquibase:
+    enabled : true
+    change-log : classpath:migrations.xml
+
+  datasource:
+    url: jdbc:postgresql://${DATABASE_SERVER:localhost}:${DATABASE_PORT:5432}/${DATABASE_DB:customer}
+    driver-class-name: org.postgresql.Driver
+    username: ${DATABASE_USER:username}
+    password: ${DATABASE_PASS:password}
+
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
